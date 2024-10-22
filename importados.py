@@ -265,6 +265,7 @@ def generate_html(df, filename='index.html', include_price=False):
                 header h2 {{
                     font-family: 'IM Fell DW Pica', serif;
                     font-size: 1.5em;
+                    color: #333;
                     margin: 20px 0;
                 }}
 
@@ -413,10 +414,10 @@ def generate_html(df, filename='index.html', include_price=False):
             <header>
                 <h1>fily</h1>
                 
-                <h2> productos de USA a ARG
+                <h2> productos de USA a ARG<br>
                 
                     <a href="https://www.instagram.com/fily.importados/">
-                        Instagram 
+                        Instagram ●
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5491122887256">
                         WhatsApp
