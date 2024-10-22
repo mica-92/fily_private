@@ -413,16 +413,15 @@ def generate_html(df, filename='index.html', include_price=False):
             <header>
                 <h1>fily</h1>
                 
-                <h2> productos de USA a ARG </h2> 
+                <h2> productos de USA a ARG
                 
-                <div class="social-media-icons">
                     <a href="https://www.instagram.com/fily.importados/">
                         Instagram 
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5491122887256">
                         WhatsApp
                     </a>
-                </div>
+                </h2> 
             </header>
 
             <div class="product-container">
