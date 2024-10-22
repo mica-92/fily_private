@@ -417,10 +417,10 @@ def generate_html(df, filename='index.html', include_price=False):
                 
                 <div class="social-media-icons">
                     <a href="https://www.instagram.com/fily.importados/">
-                        <img src="instagram.png" alt="Instagram"> 
+                        Instagram 
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5491122887256">
-                        <img src="whatsapp.png" alt="WhatsApp">
+                        WhatsApp
                     </a>
                 </div>
             </header>
