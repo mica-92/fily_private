@@ -1,0 +1,35 @@
+ID,Type,Gender,Brand,Name,Color,Cost (USD),Expected Price (USD),Trip #,Sizes,Count
+TJ01,T,J,Nike,Jordan Dri-Fit Sport Polo,Black,42.73,135.0,1,M,1
+TN01,T,NG,Nike,Air Jordan Wordmark 85 Unisex,Grey,36.76,75.0,1,M,1
+JM01,J,M,Nike,Campera Jordan Essentials,Beige,51.73,160.0,1,M,1
+JM02,J,M,Nike,Campera Nike Bicolor,"Beige, White",49.48,150.0,1,M,1
+TN02,T,NG,Nike,Remera Jordan Washed Unisex,Beige,24.73,80.0,1,M,1
+TN02,T,NG,Nike,Remera Jordan Washed Unisex,Beige,24.73,80.0,1,L,0
+TN03,T,NG,Nike,Remera Jordan Washed Unisex,Blue,28.48,80.0,1,L,1
+TN03,T,NG,Nike,Remera Jordan Washed Unisex,Blue,28.48,80.0,1,M,2
+TN04,T,NG,Nike,Remera Air Jordan Unisex,Green,27.73,75.0,1,M,1
+TM02,T,M,Remera Básica Jordan Flight,Remera Básica Jordan Flight,Black,15.93,70.0,1,L,1
+TM02,T,M,Remera Básica Jordan Flight,Remera Básica Jordan Flight,Black,15.93,70.0,1,M,1
+TM04,T,M,Nike,Remera Básica Jordan Flight,Blanco,15.93,70.0,1,M,1
+TM04,T,M,Nike,Remera Básica Jordan Flight,Blanco,15.93,70.0,1,L,1
+SJ01,S,J,Nike,Zapas Air Jordan Low N&D,"White, Black, Gold",63.25,200.0,1,9,1
+SJ02,S,J,Nike,Zapas Air Jordan Mid Gris,Dark Grey,71.23,210.0,1,5.5,1
+SJ02,S,J,Nike,Zapas Air Jordan Mid Gris,Dark Grey,71.23,210.0,1,7,0
+SJ03,S,J,Nike,Zapas Air Jordan Low Beige,"Beige, white",65.98,200.0,1,6.5,1
+SJ03,S,J,Nike,Zapas Air Jordan Low Beige,"Beige, white",65.98,200.0,1,6,0
+SJ04,S,J,Nike,"Zapas Air Jordan ""Wave"" Turqueza","Sky Blue, Beige, White",65.98,200.0,1,5.5,1
+SJ05,S,J,Nike,Zapas Air Jordan Mid Gris Claro,"Gre,y White",76.48,210.0,1,11,1
+SJ06,S,J,Nike,Zapas Air Jordan Plum,"Plum, White",73.48,200.0,1,5.5,1
+SJ06,S,J,Nike,Zapas Air Jordan Plum,"Plum, White",73.48,200.0,1,6.5,0
+SJ07,S,J,Nike,Zapas Air Jordan Low Rosa,"Pink, Grey, White",60.73,200.0,1,9,1
+SJ07,S,J,Nike,Zapas Air Jordan Low Rosa,"Pink, Grey, White",60.73,200.0,1,10,0
+SJ08,S,J,Nike,Zapas Air Jordan Low Verde Claro,"Green, White",56.98,200.0,1,9.5,1
+ON01,O,NG,Nike,Sobre Jordan Monogram Pink,Pink,27.73,75.0,1,NS,1
+ON02,O,NG,Nike,Riñonera Jordan Rise,Black,22.5,75.0,1,NS,1
+TM01,T,M,Nike,Remera Deportiva Ja Celeste,Skyblue,25.48,45.0,1,M,1
+ON03,O,NG,Nike,Riñonera Jordan Beige,Beige,30.0,75.0,1,NS,1
+TN05,T,NG,Nike,Remera Air Jordan Wordmark 85 Unisex,Black,27.73,75.0,1,L,1
+TN05,T,NG,Nike,Remera Air Jordan Wordmark 85 Unisex,Black,27.73,75.0,1,M,0
+TN05,T,NG,Nike,Remera Air Jordan Wordmark 85 Unisex,Black,27.73,75.0,1,S,0
+TM03,T,M,Nike,Remera Deportiva Ja Negra,Black,25.48,45.0,1,L,1
+TM03,T,M,Nike,Remera Deportiva Ja Negra,Black,25.48,45.0,1,M,0

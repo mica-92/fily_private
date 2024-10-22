@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50.000004mm"
+   viewBox="0 0 50 50.000004"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-23.971976,-63.261213)">
+    <ellipse
+       style="fill:none;stroke:#1c1910;stroke-width:1.9213;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:10"
+       id="path1"
+       cx="48.971977"
+       cy="88.261215"
+       rx="24.039351"
+       ry="24.039352" />
+    <text
+       xml:space="preserve"
+       style="font-size:42.0141px;line-height:1.05;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;text-decoration-color:#000000;letter-spacing:-2.57466px;text-anchor:middle;white-space:pre;fill:#1c1910;fill-opacity:1;stroke:none;stroke-width:3.10398;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:10"
+       x="49.005077"
+       y="100.52799"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'IM FELL DW Pica';-inkscape-font-specification:'IM FELL DW Pica';fill:#1c1910;fill-opacity:1;stroke:none;stroke-width:3.10398"
+         x="47.717747"
+         y="100.52799">fily</tspan></text>
+  </g>
+</svg>
