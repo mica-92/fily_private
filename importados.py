@@ -659,18 +659,15 @@ def modify_sale():
     sold_df.to_csv(SOLD_FILE, index=False)
     print(f"Sale record for product {product_id} updated successfully.")
 
-
+# Function to push files to GitHub
 def git_push(repo_url, commit_message):
     """
     Executes git commands to push changes to the specified repository.
     """
     subprocess.run(['git', 'init'])
-    
-    # Check if remote 'origin' exists and remove it if it does
-    subprocess.run(['git', 'remote', 'remove', 'origin'], stderr=subprocess.DEVNULL)
-    
+    subprocess.run(['git', 'remote', 'remove', 'origin'], stderr=subprocess.DEVNULL)  # Remove existing remote if it exists
     subprocess.run(['git', 'add', '.'])
-    subprocess.run(['git', 'commit', '-m', commit_message], stderr=subprocess.DEVNULL)
+    subprocess.run(['git', 'commit', '-m', commit_message])
     subprocess.run(['git', 'branch', '-M', 'main'])
     subprocess.run(['git', 'remote', 'add', 'origin', repo_url])
     subprocess.run(['git', 'push', '-u', 'origin', 'main', '--force'])
@@ -681,8 +678,7 @@ def create_html_and_push(df):
     generate_html(df, filename='index.html', include_price=False)
     generate_html(df, filename='catalogue.html', include_price=True)
 
-    # --- Push to the public repository ---
-    # Create a public repository structure (only index.html and images)
+    # --- Push to the public repository (fily) ---
     public_repo_folder = 'fily_public'
     if not os.path.exists(public_repo_folder):
         os.makedirs(public_repo_folder)
@@ -698,18 +694,28 @@ def create_html_and_push(df):
     git_push(GITHUB_PUBLIC_REPO, "Update public index.html")
     os.chdir("..")  # Go back to the root directory
 
-    # --- Push to the private repository ---
-    # Create the private repository structure (push all files)
+    # --- Move catalogue.html to /docs and rename it to index.html ---
+    docs_folder = 'docs'
+    if not os.path.exists(docs_folder):
+        os.makedirs(docs_folder)
+
+    # Rename and move catalogue.html to docs/index.html
+    shutil.move('catalogue.html', os.path.join(docs_folder, 'index.html'))
+
+    # --- Push to the private repository (fily_private) ---
     private_repo_folder = 'fily_private'
     if not os.path.exists(private_repo_folder):
         os.makedirs(private_repo_folder)
 
-    # Copy all files to the private folder
-    shutil.copytree('.', private_repo_folder, dirs_exist_ok=True, ignore=shutil.ignore_patterns('.git', 'fily_public', 'fily_private'))
+    # Copy all files to the private folder, excluding .git folder, public files, and docs
+    shutil.copytree('.', private_repo_folder, dirs_exist_ok=True, ignore=shutil.ignore_patterns('.git', 'fily_public', 'fily_private', 'docs'))
+
+    # Copy the /docs folder into the private folder to upload it as well
+    shutil.copytree(docs_folder, os.path.join(private_repo_folder, 'docs'), dirs_exist_ok=True)
 
     # Change directory to the private repository folder and push
     os.chdir(private_repo_folder)
-    git_push(GITHUB_PRIVATE_REPO, "Update private catalogue and code")
+    git_push(GITHUB_PRIVATE_REPO, "Update private docs and catalogue")
     os.chdir("..")  # Go back to the root directory
 
     print("HTML reports generated and pushed to GitHub successfully.")
@@ -762,6 +768,8 @@ def main_menu():
         else:
             print("Invalid choice. Please try again.")
 
+
+            
 # Run the main menu
 if __name__ == "__main__":
     # Create empty CSV files if they do not exist
