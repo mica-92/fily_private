@@ -11,8 +11,8 @@ AVAILABLE_FILE = 'available.csv'
 SOLD_FILE = 'sold.csv'
 
 # File paths and GitHub repository info
-GITHUB_PUBLIC_REPO = "https://github.com/yourusername/fily.git"
-GITHUB_PRIVATE_REPO = "https://github.com/yourusername/fily_private.git"
+GITHUB_PUBLIC_REPO = "https://github.com/mica-92/fily.git"
+GITHUB_PRIVATE_REPO = "https://github.com/mica-92/fily_private.git"
 
 
 # Function to add products
