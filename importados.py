@@ -660,14 +660,17 @@ def modify_sale():
     print(f"Sale record for product {product_id} updated successfully.")
 
 
-# Function to push files to GitHub
 def git_push(repo_url, commit_message):
     """
     Executes git commands to push changes to the specified repository.
     """
     subprocess.run(['git', 'init'])
+    
+    # Check if remote 'origin' exists and remove it if it does
+    subprocess.run(['git', 'remote', 'remove', 'origin'], stderr=subprocess.DEVNULL)
+    
     subprocess.run(['git', 'add', '.'])
-    subprocess.run(['git', 'commit', '-m', commit_message])
+    subprocess.run(['git', 'commit', '-m', commit_message], stderr=subprocess.DEVNULL)
     subprocess.run(['git', 'branch', '-M', 'main'])
     subprocess.run(['git', 'remote', 'add', 'origin', repo_url])
     subprocess.run(['git', 'push', '-u', 'origin', 'main', '--force'])
