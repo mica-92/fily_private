@@ -416,7 +416,7 @@ def generate_html(df, filename='index.html', include_price=False):
                 <h2> ropa de USA a ARG </h2> 
                 
                 <div class="social-media-icons">
-                    <a href="https://www.instagram.com/fily.ropa/">
+                    <a href="https://www.instagram.com/fily.importados/">
                         <img src="instagram.png" alt="Instagram"> 
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5491122887256">
@@ -769,7 +769,7 @@ def main_menu():
             print("Invalid choice. Please try again.")
 
 
-            
+
 # Run the main menu
 if __name__ == "__main__":
     # Create empty CSV files if they do not exist
