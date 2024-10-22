@@ -232,7 +232,7 @@ def generate_html(df, filename='index.html', include_price=False):
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>fily - de USA a ARG</title>
+            <title>fily Importados</title>
 
             <!-- Favicon -->
             <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -413,7 +413,7 @@ def generate_html(df, filename='index.html', include_price=False):
             <header>
                 <h1>fily</h1>
                 
-                <h2> ropa de USA a ARG </h2> 
+                <h2> productos de USA a ARG </h2> 
                 
                 <div class="social-media-icons">
                     <a href="https://www.instagram.com/fily.importados/">
