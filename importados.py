@@ -210,7 +210,6 @@ def sort_sizes(sizes):
     
     return numeric_sizes + letter_sizes + unique_size
 
-
 def generate_html(df, filename='index.html', include_price=False):
     # Create a DataFrame to hold unique products and their sizes
     unique_products = {}
@@ -225,9 +224,17 @@ def generate_html(df, filename='index.html', include_price=False):
     for _, row in df.iterrows():
         product_id = row['ID']
         
+        # Process sizes, handle empty or malformed size fields
+        sizes = row['Sizes']
+        if pd.isna(sizes) or sizes.strip() == '':
+            sizes_list = ['Único']  # If no size is provided, default to 'Único'
+        else:
+            sizes_list = sizes.split(", ")
+        
+        # Sort the sizes correctly
+        sorted_sizes = sort_sizes(sizes_list)
+        
         if product_id not in unique_products:
-            # Sort sizes appropriately using sort_sizes function
-            sorted_sizes = sort_sizes(row['Sizes'].split(", "))
             unique_products[product_id] = {
                 'Type': row['Type'],
                 'Brand': row['Brand'],
@@ -238,8 +245,7 @@ def generate_html(df, filename='index.html', include_price=False):
                 'Image': f"images/{product_id}.png"  # Path to the image
             }
         else:
-            # If the product already exists, add the sizes to the list if not already present
-            additional_sizes = sort_sizes(row['Sizes'].split(", "))
+            additional_sizes = sort_sizes(sizes_list)
             for size in additional_sizes:
                 if size not in unique_products[product_id]['Sizes']:
                     unique_products[product_id]['Sizes'].append(size)
@@ -253,7 +259,7 @@ def generate_html(df, filename='index.html', include_price=False):
             <title>fily Importados</title>
 
             <!-- Favicon -->
-            <link rel="icon" href="favicon.ico" type="image/x-icon">
+            <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
             <!-- Google Fonts -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -476,13 +482,13 @@ def generate_html(df, filename='index.html', include_price=False):
 
             <header>
                 <h1>fily</h1>
-                <h2>Jordan • Nike • Adidas • Uniqlo • Stanley</h2> 
+                <h2> productos de USA a ARG </h2> 
                 <div class="social-media-icons">
                     <a href="https://www.instagram.com/fily.importados/">
-                        <img src="instagram.png" alt="Instagram"> 
+                        <img src="images/instagram.png" alt="Instagram"> 
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5491122887256">
-                        <img src="whatsapp.png" alt="WhatsApp">
+                        <img src="images/whatsapp.png" alt="WhatsApp">
                     </a>
                 </div>
             </header>
@@ -533,6 +539,8 @@ def generate_html(df, filename='index.html', include_price=False):
         """)
 
     print(f"HTML file {filename} generated successfully.")
+
+
 
 
 # Function to create both internal and catalogue versions
