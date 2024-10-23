@@ -464,7 +464,7 @@ def generate_html(df, filename='index.html', include_price=False):
             </style>
             <script>
                 function openPopup() {{
-                    window.open('sizes.png', 'popup', 'width=600,height=600');
+                    window.open('images/sizes.png', 'popup', 'width=600,height=600');
                 }}
 
                 // JavaScript function to filter products by type
