@@ -394,7 +394,8 @@ def generate_html(df, filename='index.html', include_price=False):
                 footer {{
                     background-color: #333;
                     color: white;
-                    padding: 10px;
+                    padding: 5px;
+                    font-size: 0.6em;
                     text-align: center;
                     position: fixed;
                     width: 100%;
@@ -495,7 +496,7 @@ def generate_html(df, filename='index.html', include_price=False):
                 <div class="product {details['Type']}">  <!-- Add product type as a class for filtering -->
                     <img src='{details['Image']}' alt='{details['Name']}'>
                     <h3>{details['Name']}</h3>
-                    <p class="product-id">ID: {product_id}</p>
+                    <p class="product-id">Código: {product_id}</p>
                     {price_html}
                     <div class="sizes-container">
                         {sizes_html}
