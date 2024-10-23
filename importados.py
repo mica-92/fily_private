@@ -470,10 +470,10 @@ def generate_html(df, filename='index.html', include_price=False):
 
             <div class="filter-menu">
                 <button onclick="filterProducts('all')">Todos</button>
-                <button onclick="filterProducts('S')">Remeras</button>
-                <button onclick="filterProducts('J')">Jordan</button>
+                <button onclick="filterProducts('T')">Remeras</button>
+                <button onclick="filterProducts('S')">Jordan</button>
                 <button onclick="filterProducts('H')">Buzos</button>
-                <button onclick="filterProducts('T')">Camperas</button>
+                <button onclick="filterProducts('J')">Camperas</button>
                 <button onclick="filterProducts('O')">Accesorios</button>
             </div>
 
@@ -506,7 +506,7 @@ def generate_html(df, filename='index.html', include_price=False):
         f.write("""
             </div>
             <footer>
-                <p>Los talles de las zapatillas son de US Men.  
+                <p>Los talles de las zapatillas son de US Men.<br>  
                     <a href="javascript:void(0)" onclick="openPopup()">Tabla de Conversiones</a>.</p>
             </footer>
         </body>
