@@ -210,6 +210,13 @@ def sort_sizes(sizes):
     
     return numeric_sizes + letter_sizes + unique_size
 
+def sort_sizes(sizes):
+    order = {'XS': 0, 'S': 1, 'M': 2, 'L': 3, 'XL': 4}
+    return sorted(sizes, key=lambda x: (x == 'Único', x.isdigit(), order.get(x, float(x) if x.isdigit() else x)))
+
+
+
+
 def generate_html(df, filename='index.html', include_price=False):
     # Create a DataFrame to hold unique products and their sizes
     unique_products = {}
@@ -539,8 +546,6 @@ def generate_html(df, filename='index.html', include_price=False):
         """)
 
     print(f"HTML file {filename} generated successfully.")
-
-
 
 
 # Function to create both internal and catalogue versions
