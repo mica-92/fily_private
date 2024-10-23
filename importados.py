@@ -208,9 +208,21 @@ def generate_html(df, filename='index.html', include_price=False):
     df['Type'] = pd.Categorical(df['Type'], categories=type_order, ordered=True)
     df = df.sort_values('Type')  # Sort the DataFrame by Type
 
+    # Helper function to sort sizes
+    def sort_sizes(sizes):
+        size_order = {'XS': 1, 'S': 2, 'M': 3, 'L': 4, 'XL': 5, 'Único': 0}  # Priority for text sizes
+        numeric_sizes = sorted([s for s in sizes if s.isdigit()], key=int)  # Sort numeric sizes
+        text_sizes = sorted([size_order.get(s, float('inf')) for s in sizes if not s.isdigit()], key=lambda x: size_order.get(x, float('inf')))
+        return numeric_sizes + text_sizes
+
     for _, row in df.iterrows():
         product_id = row['ID']
-        
+        sizes = row['Sizes'].split(", ")  # Split sizes by comma and space
+
+        # Replace 'NS' with 'Único' and sort sizes
+        sizes = ["Único" if size == "NS" else size for size in sizes]
+        sizes = sort_sizes(sizes)
+
         if product_id not in unique_products:
             unique_products[product_id] = {
                 'Type': row['Type'],
@@ -218,7 +230,7 @@ def generate_html(df, filename='index.html', include_price=False):
                 'Name': row['Name'],
                 'Color': row['Color'],
                 'Expected Price (USD)': row['Expected Price (USD)'],
-                'Sizes': [row['Sizes']],  # Convert sizes
+                'Sizes': sizes,  # Sorted sizes
                 'Image': f"images/{product_id}.png"  # Path to the image
             }
         else:
@@ -394,8 +406,8 @@ def generate_html(df, filename='index.html', include_price=False):
                 footer {{
                     background-color: #333;
                     color: white;
-                    padding: 5px;
-                    font-size: 0.6em;
+                    padding: 3px;
+                    font-size: 0.8em;
                     text-align: center;
                     position: fixed;
                     width: 100%;
