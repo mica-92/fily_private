@@ -61,6 +61,26 @@
                     border-bottom: 1px solid #333;
                 }
 
+                .filter-menu {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                .filter-menu button {
+                    padding: 10px 20px;
+                    font-size: 1em;
+                    margin: 5px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #007BFF;
+                    color: white;
+                }
+
+                .filter-menu button:hover {
+                    background-color: #0056b3;
+                }
+
                 .product-container {
                     display: flex;
                     flex-wrap: wrap;
@@ -77,6 +97,11 @@
                     width: calc(25% - 40px);
                     text-align: center;
                     transition: transform 0.2s;
+                    display: none;  /* Initially hide all products */
+                }
+
+                .product.show {
+                    display: block;  /* Only show filtered products */
                 }
 
                 .product:hover {
@@ -176,15 +201,30 @@
                 function openPopup() {
                     window.open('sizes.png', 'popup', 'width=600,height=600');
                 }
+
+                // JavaScript function to filter products by type
+                function filterProducts(type) {
+                    const products = document.querySelectorAll('.product');
+                    products.forEach(product => {
+                        if (product.classList.contains(type) || type === 'all') {
+                            product.classList.add('show');
+                        } else {
+                            product.classList.remove('show');
+                        }
+                    });
+                }
+
+                // Automatically show all products on page load
+                window.onload = function() {
+                    filterProducts('all');
+                }
             </script>
         </head>
         <body>
 
             <header>
                 <h1>fily</h1>
-                
                 <h2> productos de USA a ARG </h2> 
-                
                 <div class="social-media-icons">
                     <a href="https://www.instagram.com/fily.importados/">
                         <img src="instagram.png" alt="Instagram"> 
@@ -195,9 +235,18 @@
                 </div>
             </header>
 
+            <div class="filter-menu">
+                <button onclick="filterProducts('all')">Todos</button>
+                <button onclick="filterProducts('S')">Remeras</button>
+                <button onclick="filterProducts('J')">Jordan</button>
+                <button onclick="filterProducts('H')">Buzos</button>
+                <button onclick="filterProducts('T')">Camperas</button>
+                <button onclick="filterProducts('O')">Accesorios</button>
+            </div>
+
             <div class="product-container">
         
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ06.png' alt='Zapas Air Jordan Plum'>
                     <h3>Zapas Air Jordan Plum</h3>
                     <p class="product-id">ID: SJ06</p>
@@ -210,7 +259,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ03.png' alt='Zapas Air Jordan Low Beige'>
                     <h3>Zapas Air Jordan Low Beige</h3>
                     <p class="product-id">ID: SJ03</p>
@@ -223,7 +272,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ02.png' alt='Zapas Air Jordan Mid Gris'>
                     <h3>Zapas Air Jordan Mid Gris</h3>
                     <p class="product-id">ID: SJ02</p>
@@ -236,7 +285,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ01.png' alt='Zapas Air Jordan Low N&D'>
                     <h3>Zapas Air Jordan Low N&D</h3>
                     <p class="product-id">ID: SJ01</p>
@@ -249,7 +298,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ07.png' alt='Zapas Air Jordan Low Rosa'>
                     <h3>Zapas Air Jordan Low Rosa</h3>
                     <p class="product-id">ID: SJ07</p>
@@ -262,7 +311,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ04.png' alt='Zapas Air Jordan "Wave" Turqueza'>
                     <h3>Zapas Air Jordan "Wave" Turqueza</h3>
                     <p class="product-id">ID: SJ04</p>
@@ -275,7 +324,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ08.png' alt='Zapas Air Jordan Low Verde Claro'>
                     <h3>Zapas Air Jordan Low Verde Claro</h3>
                     <p class="product-id">ID: SJ08</p>
@@ -288,7 +337,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product S">  <!-- Add product type as a class for filtering -->
                     <img src='images/SJ05.png' alt='Zapas Air Jordan Mid Gris Claro'>
                     <h3>Zapas Air Jordan Mid Gris Claro</h3>
                     <p class="product-id">ID: SJ05</p>
@@ -301,7 +350,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product J">  <!-- Add product type as a class for filtering -->
                     <img src='images/JW02.png' alt='Campera Uniqlo UV Mujer'>
                     <h3>Campera Uniqlo UV Mujer</h3>
                     <p class="product-id">ID: JW02</p>
@@ -314,7 +363,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product J">  <!-- Add product type as a class for filtering -->
                     <img src='images/JW01.png' alt='Campera Uniqlo UltraLight Mujer'>
                     <h3>Campera Uniqlo UltraLight Mujer</h3>
                     <p class="product-id">ID: JW01</p>
@@ -327,7 +376,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product J">  <!-- Add product type as a class for filtering -->
                     <img src='images/JM05.png' alt='Uniqlo UltraLight Quilted Hombre '>
                     <h3>Uniqlo UltraLight Quilted Hombre </h3>
                     <p class="product-id">ID: JM05</p>
@@ -340,7 +389,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product J">  <!-- Add product type as a class for filtering -->
                     <img src='images/JM04.png' alt='Campera Uniqlo UV Hombre Negra'>
                     <h3>Campera Uniqlo UV Hombre Negra</h3>
                     <p class="product-id">ID: JM04</p>
@@ -353,7 +402,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product J">  <!-- Add product type as a class for filtering -->
                     <img src='images/JM03.png' alt='Campera Uniqlo UV Hombre Azul'>
                     <h3>Campera Uniqlo UV Hombre Azul</h3>
                     <p class="product-id">ID: JM03</p>
@@ -366,7 +415,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product J">  <!-- Add product type as a class for filtering -->
                     <img src='images/JM01.png' alt='Campera Jordan Essentials'>
                     <h3>Campera Jordan Essentials</h3>
                     <p class="product-id">ID: JM01</p>
@@ -379,7 +428,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product J">  <!-- Add product type as a class for filtering -->
                     <img src='images/JM02.png' alt='Campera Nike Bicolor'>
                     <h3>Campera Nike Bicolor</h3>
                     <p class="product-id">ID: JM02</p>
@@ -392,7 +441,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TM04.png' alt='Remera Básica Jordan Flight'>
                     <h3>Remera Básica Jordan Flight</h3>
                     <p class="product-id">ID: TM04</p>
@@ -405,7 +454,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TN01.png' alt='Air Jordan Wordmark 85 Unisex'>
                     <h3>Air Jordan Wordmark 85 Unisex</h3>
                     <p class="product-id">ID: TN01</p>
@@ -418,7 +467,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TN02.png' alt='Remera Jordan Washed Unisex'>
                     <h3>Remera Jordan Washed Unisex</h3>
                     <p class="product-id">ID: TN02</p>
@@ -431,7 +480,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TN03.png' alt='Remera Jordan Washed Unisex'>
                     <h3>Remera Jordan Washed Unisex</h3>
                     <p class="product-id">ID: TN03</p>
@@ -444,7 +493,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TM03.png' alt='Remera Deportiva Ja Negra'>
                     <h3>Remera Deportiva Ja Negra</h3>
                     <p class="product-id">ID: TM03</p>
@@ -457,7 +506,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TN05.png' alt='Remera Air Jordan Wordmark 85 Unisex'>
                     <h3>Remera Air Jordan Wordmark 85 Unisex</h3>
                     <p class="product-id">ID: TN05</p>
@@ -470,7 +519,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TM01.png' alt='Remera Deportiva Ja Celeste'>
                     <h3>Remera Deportiva Ja Celeste</h3>
                     <p class="product-id">ID: TM01</p>
@@ -483,7 +532,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TN04.png' alt='Remera Air Jordan Unisex'>
                     <h3>Remera Air Jordan Unisex</h3>
                     <p class="product-id">ID: TN04</p>
@@ -496,7 +545,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TM02.png' alt='Remera Básica Jordan Flight'>
                     <h3>Remera Básica Jordan Flight</h3>
                     <p class="product-id">ID: TM02</p>
@@ -509,7 +558,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product T">  <!-- Add product type as a class for filtering -->
                     <img src='images/TJ01.png' alt='Jordan Dri-Fit Sport Polo'>
                     <h3>Jordan Dri-Fit Sport Polo</h3>
                     <p class="product-id">ID: TJ01</p>
@@ -522,7 +571,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product O">  <!-- Add product type as a class for filtering -->
                     <img src='images/ON03.png' alt='Riñonera Jordan Beige'>
                     <h3>Riñonera Jordan Beige</h3>
                     <p class="product-id">ID: ON03</p>
@@ -535,7 +584,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product O">  <!-- Add product type as a class for filtering -->
                     <img src='images/ON02.png' alt='Riñonera Jordan Rise'>
                     <h3>Riñonera Jordan Rise</h3>
                     <p class="product-id">ID: ON02</p>
@@ -548,7 +597,7 @@
                     </div>
                 </div>
             
-                <div class="product">
+                <div class="product O">  <!-- Add product type as a class for filtering -->
                     <img src='images/ON01.png' alt='Sobre Jordan Monogram Pink'>
                     <h3>Sobre Jordan Monogram Pink</h3>
                     <p class="product-id">ID: ON01</p>

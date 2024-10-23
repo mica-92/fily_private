@@ -291,6 +291,26 @@ def generate_html(df, filename='index.html', include_price=False):
                     border-bottom: 1px solid #333;
                 }}
 
+                .filter-menu {{
+                    text-align: center;
+                    margin-bottom: 20px;
+                }}
+
+                .filter-menu button {{
+                    padding: 10px 20px;
+                    font-size: 1em;
+                    margin: 5px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #007BFF;
+                    color: white;
+                }}
+
+                .filter-menu button:hover {{
+                    background-color: #0056b3;
+                }}
+
                 .product-container {{
                     display: flex;
                     flex-wrap: wrap;
@@ -307,6 +327,11 @@ def generate_html(df, filename='index.html', include_price=False):
                     width: calc(25% - 40px);
                     text-align: center;
                     transition: transform 0.2s;
+                    display: none;  /* Initially hide all products */
+                }}
+
+                .product.show {{
+                    display: block;  /* Only show filtered products */
                 }}
 
                 .product:hover {{
@@ -406,15 +431,30 @@ def generate_html(df, filename='index.html', include_price=False):
                 function openPopup() {{
                     window.open('sizes.png', 'popup', 'width=600,height=600');
                 }}
+
+                // JavaScript function to filter products by type
+                function filterProducts(type) {{
+                    const products = document.querySelectorAll('.product');
+                    products.forEach(product => {{
+                        if (product.classList.contains(type) || type === 'all') {{
+                            product.classList.add('show');
+                        }} else {{
+                            product.classList.remove('show');
+                        }}
+                    }});
+                }}
+
+                // Automatically show all products on page load
+                window.onload = function() {{
+                    filterProducts('all');
+                }}
             </script>
         </head>
         <body>
 
             <header>
                 <h1>fily</h1>
-                
                 <h2> productos de USA a ARG </h2> 
-                
                 <div class="social-media-icons">
                     <a href="https://www.instagram.com/fily.importados/">
                         <img src="instagram.png" alt="Instagram"> 
@@ -424,6 +464,15 @@ def generate_html(df, filename='index.html', include_price=False):
                     </a>
                 </div>
             </header>
+
+            <div class="filter-menu">
+                <button onclick="filterProducts('all')">Todos</button>
+                <button onclick="filterProducts('S')">Remeras</button>
+                <button onclick="filterProducts('J')">Jordan</button>
+                <button onclick="filterProducts('H')">Buzos</button>
+                <button onclick="filterProducts('T')">Camperas</button>
+                <button onclick="filterProducts('O')">Accesorios</button>
+            </div>
 
             <div class="product-container">
         """)
@@ -440,7 +489,7 @@ def generate_html(df, filename='index.html', include_price=False):
             """ if include_price else ""
 
             f.write(f"""
-                <div class="product">
+                <div class="product {details['Type']}">  <!-- Add product type as a class for filtering -->
                     <img src='{details['Image']}' alt='{details['Name']}'>
                     <h3>{details['Name']}</h3>
                     <p class="product-id">ID: {product_id}</p>
@@ -462,6 +511,7 @@ def generate_html(df, filename='index.html', include_price=False):
         """)
 
     print(f"HTML file {filename} generated successfully.")
+
 
 # Function to create both internal and catalogue versions
 def create_html_files(df):
