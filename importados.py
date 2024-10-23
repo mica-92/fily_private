@@ -238,12 +238,13 @@ def generate_html(df, filename='index.html', include_price=False):
             <link rel="icon" href="favicon.ico" type="image/x-icon">
 
             <!-- Google Fonts -->
-            <link href="https://fonts.googleapis.com/css2?family=YourCustomFont:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
 
             <style>
                 body {{
-                    font-family: 'Open Sans', sans-serif;
+                    font-family: 'Roboto', sans-serif;
                     margin: 0;
                     padding: 0;
                     background-color: #f9f9f9;
@@ -297,18 +298,19 @@ def generate_html(df, filename='index.html', include_price=False):
                 }}
 
                 .filter-menu button {{
-                    padding: 10px 20px;
+                    padding: 5px 10px;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    background-color: white;
+                    color: black;
                     font-size: 1em;
                     margin: 5px;
                     cursor: pointer;
-                    border: none;
-                    border-radius: 5px;
-                    background-color: #007BFF;
-                    color: white;
+                    transition: background-color 0.2s;
                 }}
 
                 .filter-menu button:hover {{
-                    background-color: #0056b3;
+                    background-color: #f0f0f0;
                 }}
 
                 .product-container {{
@@ -350,12 +352,13 @@ def generate_html(df, filename='index.html', include_price=False):
                 }}
 
                 .product h3 {{
-                    font-family: 'IM Fell DW Pica', serif;
+                    font-family: 'Roboto', sans-serif;
                     font-size: 1.2em;
                     margin: 15px 0;
                 }}
 
                 .product p {{
+                    font-family: 'Roboto', sans-serif;
                     font-size: 1em;
                     margin: 5px 0;
                 }}
