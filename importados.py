@@ -494,9 +494,6 @@ def generate_html(df, filename='index.html', include_price=False):
                     <a href="https://www.instagram.com/fily.importados/">
                         <img src="images/instagram.png" alt="Instagram"> 
                     </a>
-                    <a href="https://api.whatsapp.com/send?phone=5491122887256">
-                        <img src="images/whatsapp.png" alt="WhatsApp">
-                    </a>
                 </div>
             </header>
 
