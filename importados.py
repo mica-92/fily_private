@@ -20,7 +20,7 @@ def add_product():
     df = pd.read_csv(PRODUCTS_FILE)
 
     # Input product details
-    print("\nTypes: type (S = Sneakers, T = T-Shirts, H = Hoodies, J = Jacket, O = Other)")
+    print("\nTypes: type (S = Sneakers, T = T-Shirts, H = Hoodies, J = Jacket, O = Other, P = Pullover)")
     product_type_input = input("Enter product type: ")
     print("\nTypes: type (J = Jordans, W = Women, M = Men, K = Kids, NG = No Gender)")
     gender_input = input("Enter Gender: ")
