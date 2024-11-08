@@ -246,7 +246,7 @@ def generate_html(df, filename='index.html', include_price=False):
                 'Color': row['Color'],
                 'Expected Price (USD)': row['Expected Price (USD)'],
                 'Sizes': sorted_sizes,  # Use sorted sizes
-                'Image': f"images/{product_id}.png"  # Path to the image
+                'Image': f"images/{product_id}.jpg"  # Path to the image
             }
         else:
             additional_sizes = sort_sizes(sizes_list)
@@ -461,7 +461,7 @@ def generate_html(df, filename='index.html', include_price=False):
             </style>
             <script>
                 function openPopup() {{
-                    window.open('images/sizes.png', 'popup', 'width=600,height=600');
+                    window.open('images/sizes.jpg', 'popup', 'width=600,height=600');
                 }}
 
                 // JavaScript function to filter products by type
@@ -564,7 +564,7 @@ def search_available_items():
 
     for index, row in filtered_df.iterrows():
         sizes = ", ".join(row['Sizes'])
-        image_path = f"{row['ID']}.png"
+        image_path = f"{row['ID']}.jpg"
         html_content += f"<tr><td>{row['ID']}</td><td>{row['Name']}</td><td>{sizes}</td><td>{row['Expected Price (USD)']}</td><td><img src='{image_path}' alt='{row['Name']}' width='100'/></td></tr>"
 
     html_content += "</table></body></html>"
