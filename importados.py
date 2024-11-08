@@ -162,19 +162,15 @@ def process_sold_item():
 def calculate_expected_profit():
     df = pd.read_csv(PRODUCTS_FILE)
     
-    # Ensure 'Sizes' column is treated as a string
-    df['Sizes'] = df['Sizes'].astype(str)
+    # Calculate total cost and expected selling price by multiplying with the Count
+    df['Total_Cost'] = df['Cost (USD)'] * df['Count']
+    df['Total_Expected_Price'] = df['Expected Price (USD)'] * df['Count']
 
-    # Calculate the number of products based on the sizes
-    df['Number_of_Products'] = df['Sizes'].apply(lambda x: len(x.split(',')))  # Count the number of sizes available
-    df['Gross_Cost'] = df['Cost (USD)'] * df['Number_of_Products']  # Calculate gross cost
-    df['Expected_Selling_Price'] = df['Expected Price (USD)'] * df['Number_of_Products']  # Calculate expected selling price
-
-    # Group by Trip # and aggregate costs and expected prices
+    # Aggregate by Trip # to get the total costs and prices
     profit_summary = df.groupby('Trip #').agg(
-        Gross_Cost=('Gross_Cost', 'sum'),
-        Expected_Selling_Price=('Expected_Selling_Price', 'sum'),  # Use the updated expected selling price
-        Number_of_Products=('Number_of_Products', 'sum')  # Total number of products based on sizes
+        Gross_Cost=('Total_Cost', 'sum'),
+        Expected_Selling_Price=('Total_Expected_Price', 'sum'),
+        Number_of_Products=('Count', 'sum')  # Sum of counts for each trip
     ).reset_index()
 
     # Calculate Expected Profit
@@ -182,6 +178,7 @@ def calculate_expected_profit():
     
     # Print the summary
     print(profit_summary)
+
 
 # Function to calculate net profit based on sales period
 def calculate_net_profit(start_date, end_date):
